@@ -1,18 +1,31 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+    background-color: black;
+}
+
+h3{
+    font-weight: 600;
+    color: #fff;
+}
+button{
+    background-color: #1DB954 !important;
+    color: #fff !important;
+}
 .row {
     margin: 0;
 }
 
+.pane{
+    background-color: #3a3a3a;
+}
 .custom-card {
     border-radius: 10px;
     background-color: rgb(221, 226, 222);
     color: black;
-    box-shadow: 0px 5px 3px 0px grey;
-    margin: 20px;
-    padding: 10px;
 }
 
 .card-image img {
-    width: 100px;
-    height: 150px;
+    width: 6.25rem;
+    height: 9.375rem;
     object-fit: contain;
 }

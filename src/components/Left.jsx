@@ -43,28 +43,27 @@ function Left(props) {
   };
 
   return (
-    <div className="bg-light text-center">
-      <h3>featured playlists</h3>
+    <div className="pane text-left py-3">
+      <h3 className="px-4">featured playlists</h3>
       <div>
         {playlists.items &&
-          playlists.items.map((item) => {
+          playlists.items.map((item, index) => {
             return (
-              <Card item={item} addbtn={true} addPlaylist={props.addPlaylist} />
+              <Card
+                item={item}
+                addbtn={true}
+                addPlaylist={props.addPlaylist}
+                key={index}
+              />
             );
           })}
 
         <div className="text-center">
-          <button
-            className="m-5 btn btn-warning"
-            onClick={() => prevPlayLists()}
-          >
+          <button className="m-5 btn" onClick={() => prevPlayLists()}>
             {" "}
             {"<"}{" "}
           </button>
-          <button
-            className="m-5 btn btn-warning"
-            onClick={() => nextPlayLists()}
-          >
+          <button className="m-5 btn" onClick={() => nextPlayLists()}>
             {" "}
             {">"}{" "}
           </button>

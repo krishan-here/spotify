@@ -21,10 +21,10 @@ function App() {
 
   return (
     <div className="row p-3">
-      <div className="col-4">
+      <div className="col-lg-4">
         <Left addPlaylist={addPlaylist} />
       </div>
-      <div className="col-8">
+      <div className="col-lg-8">
         <Right localPlaylists={localPlaylists} />
       </div>
     </div>
