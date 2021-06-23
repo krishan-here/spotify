@@ -1,15 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import Left from "./components/Left";
 import Right from "./components/Right";
 
 function App() {
+  const [localPlaylists, setLocalPlaylists] = useState(
+    JSON.parse(localStorage.getItem("localPlaylists"))
+      ? JSON.parse(localStorage.getItem("localPlaylists"))
+      : []
+  );
+
+  const addPlaylist = (list) => {
+    setLocalPlaylists((prev) => {
+      return [...prev, list];
+    });
+    localStorage.setItem(
+      "localPlaylists",
+      JSON.stringify([...localPlaylists, list])
+    );
+  };
+
   return (
-    <div className="row">
+    <div className="row p-3">
       <div className="col-4">
-        <Left />
+        <Left addPlaylist={addPlaylist} />
       </div>
       <div className="col-8">
-        <Right />
+        <Right localPlaylists={localPlaylists} />
       </div>
     </div>
   );

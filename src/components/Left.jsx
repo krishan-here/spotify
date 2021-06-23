@@ -4,15 +4,14 @@ import Card from "./Card";
 
 // const url="https://api.spotify.com/v1/browse/featured-playlists";
 const accessToken =
-  "BQBWRtFgwQd4voF_sSb-q_cRMU7IGUkWwrzTurKgXTM_AKSEN0pOW7pr9SxYF28_2yEkx4JvCtFcUazD8JdnunnYrzv1GI-GR2wzRdznEcVlPOtSNfO1YxRdHayhHBx5HLfWh7ysLNOzzilDxzZrvS3tT1NJnIA";
-
+  "BQBH0C02kXRxs9H1WifgBLASVFP8FqUNkCOJoBc5PAInBkrz6ixa4_8NP12v1IQxpP5I4lToO54evo4OVASvR0re2ohGsVMX3apt_8WFMkBwmG5mgTUWbeg6Ygqz2anQ1wVe4wJ5lEj-xVYzezHdPEudUG_0kv8";
 const authAxios = axios.create({
   headers: {
     Authorization: `Bearer ${accessToken}`,
   },
 });
 
-function Left() {
+function Left(props) {
   const [playlists, setPlaylists] = useState([]);
 
   useEffect(() => {
@@ -44,12 +43,14 @@ function Left() {
   };
 
   return (
-    <div className="bg-light text-center py-5">
+    <div className="bg-light text-center">
       <h3>featured playlists</h3>
       <div>
         {playlists.items &&
           playlists.items.map((item) => {
-            return <Card item={item} addbtn={true} />;
+            return (
+              <Card item={item} addbtn={true} addPlaylist={props.addPlaylist} />
+            );
           })}
 
         <div className="text-center">
