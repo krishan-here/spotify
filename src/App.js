@@ -19,13 +19,28 @@ function App() {
     );
   };
 
+  const removePlaylist = (removeList) => {
+    setLocalPlaylists((prev) => {
+      return prev.filter((list) => list.name !== removeList.name);
+    });
+    localStorage.setItem(
+      "localPlaylists",
+      JSON.stringify(
+        localPlaylists.filter((list) => list.name !== removeList.name)
+      )
+    );
+  };
+
   return (
     <div className="row p-3">
       <div className="col-lg-4">
         <Left addPlaylist={addPlaylist} />
       </div>
       <div className="col-lg-8">
-        <Right localPlaylists={localPlaylists} />
+        <Right
+          localPlaylists={localPlaylists}
+          removePlaylist={removePlaylist}
+        />
       </div>
     </div>
   );

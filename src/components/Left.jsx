@@ -4,7 +4,7 @@ import Card from "./Card";
 
 // const url="https://api.spotify.com/v1/browse/featured-playlists";
 const accessToken =
-  "BQBH0C02kXRxs9H1WifgBLASVFP8FqUNkCOJoBc5PAInBkrz6ixa4_8NP12v1IQxpP5I4lToO54evo4OVASvR0re2ohGsVMX3apt_8WFMkBwmG5mgTUWbeg6Ygqz2anQ1wVe4wJ5lEj-xVYzezHdPEudUG_0kv8";
+  "BQD7gQuYvx9B5ZvpvWZngzVtUp3veVBqNd6STMsw9CT71U0NgizZ3Or5UCLzRY2gSmlsrZp7BDiCvc4hNpw-ZrnTKr2rAENW8JjA9IjRJEcyQ68yF-VtdvXzctWf_o_wslbGdymfGVsdcUHitBiQuIUAl9ksJYA";
 const authAxios = axios.create({
   headers: {
     Authorization: `Bearer ${accessToken}`,
@@ -46,7 +46,7 @@ function Left(props) {
     <div className="pane text-left py-3">
       <h3 className="px-4">featured playlists</h3>
       <div>
-        {playlists.items &&
+        {playlists.items ? (
           playlists.items.map((item, index) => {
             return (
               <Card
@@ -56,7 +56,14 @@ function Left(props) {
                 key={index}
               />
             );
-          })}
+          })
+        ) : (
+          <div className="bg-light p-4 m-3">
+            <h3 className="text-danger">
+              Please update access token to see featured playlists!
+            </h3>
+          </div>
+        )}
 
         <div className="text-center">
           <button className="m-5 btn" onClick={() => prevPlayLists()}>

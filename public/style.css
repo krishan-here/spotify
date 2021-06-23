@@ -11,6 +11,16 @@ button{
     background-color: #1DB954 !important;
     color: #fff !important;
 }
+.close{
+    background-color: unset !important;
+    color: black !important;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.close:hover{
+    color: rgb(255, 196, 0) !important;
+}
 .row {
     margin: 0;
 }

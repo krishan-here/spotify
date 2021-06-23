@@ -11,8 +11,12 @@ function Right(props) {
       <div className="row">
         {props.localPlaylists.map((item, index) => {
           return (
-            <div className="col-lg-6">
-              <Card item={item} addbtn={false} key={index} />
+            <div className="col-lg-6" key={index}>
+              <Card
+                item={item}
+                addbtn={false}
+                removePlaylist={props.removePlaylist}
+              />
             </div>
           );
         })}

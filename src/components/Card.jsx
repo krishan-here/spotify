@@ -1,4 +1,5 @@
 import React from "react";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 function Card(props) {
   let imageUrl = null;
@@ -21,6 +22,15 @@ function Card(props) {
               onClick={() => props.addPlaylist(props.item)}
             >
               add to playlists
+            </button>
+          )}
+          {!props.addbtn && (
+            <button
+              type="button"
+              className="close m-1"
+              onClick={() => props.removePlaylist(props.item)}
+            >
+              <DeleteIcon />
             </button>
           )}
         </div>
