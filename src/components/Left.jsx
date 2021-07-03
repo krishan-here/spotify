@@ -4,7 +4,7 @@ import Card from "./Card";
 
 // const url="https://api.spotify.com/v1/browse/featured-playlists";
 const accessToken =
-  "BQD7gQuYvx9B5ZvpvWZngzVtUp3veVBqNd6STMsw9CT71U0NgizZ3Or5UCLzRY2gSmlsrZp7BDiCvc4hNpw-ZrnTKr2rAENW8JjA9IjRJEcyQ68yF-VtdvXzctWf_o_wslbGdymfGVsdcUHitBiQuIUAl9ksJYA";
+  "BQChnRGKDrZwtCOQIt28GtLSK0tgVePC5Z3vU7VsFyCbZ5I1tPsP_XMi1pCuaU2mIYRViYw_DSulFFSrtEAgrX5TB6mkdiIXFGg1ez0SvTvZOIeR-NbWKBr-IkoaW9IVKSTqniM_0tAXtqUo-MnUD9geA44zKAk";
 const authAxios = axios.create({
   headers: {
     Authorization: `Bearer ${accessToken}`,
@@ -65,16 +65,18 @@ function Left(props) {
           </div>
         )}
 
-        <div className="text-center">
-          <button className="m-5 btn" onClick={() => prevPlayLists()}>
-            {" "}
-            {"<"}{" "}
-          </button>
-          <button className="m-5 btn" onClick={() => nextPlayLists()}>
-            {" "}
-            {">"}{" "}
-          </button>
-        </div>
+        {playlists.items && (
+          <div className="text-center">
+            <button className="m-5 btn" onClick={() => prevPlayLists()}>
+              {" "}
+              {"<"}{" "}
+            </button>
+            <button className="m-5 btn" onClick={() => nextPlayLists()}>
+              {" "}
+              {">"}{" "}
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

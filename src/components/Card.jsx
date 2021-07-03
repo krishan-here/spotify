@@ -21,7 +21,7 @@ function Card(props) {
               className="btn"
               onClick={() => props.addPlaylist(props.item)}
             >
-              add to playlists
+              Save playlist
             </button>
           )}
           {!props.addbtn && (
